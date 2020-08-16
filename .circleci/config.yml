@@ -9,6 +9,9 @@ jobs:
         steps:
             - checkout
             - run:
+                name: install-npm
+                command: npm install
+            - run:
                   name: formatting-check
                   command: npx prettier -c **
             - run:
