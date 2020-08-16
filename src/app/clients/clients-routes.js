@@ -1,9 +1,9 @@
-import Clients from './Clients.vue';
+import clients from './clients.vue';
 
 const clientsRoutes = [
     {
         path: '/clients',
-        component: Clients,
+        component: clients,
     },
 ];
 
