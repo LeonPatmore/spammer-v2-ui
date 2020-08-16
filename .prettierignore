@@ -1,0 +1,7 @@
+.prettierignore
+.gitignore
+.dockerignore
+Dockerfile
+nginx/**
+dist/**
+src/assets/**
