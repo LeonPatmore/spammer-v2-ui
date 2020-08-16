@@ -1,10 +1,10 @@
-import clients from './clients.vue';
+// import clients from './clients.vue';
 
 const clientsRoutes = [
-    {
-        path: '/clients',
-        component: clients,
-    },
+    // {
+    //     path: '/clients',
+    //     component: clients,
+    // },
 ];
 
 export default clientsRoutes;
