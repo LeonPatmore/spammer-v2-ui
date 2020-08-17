@@ -1,4 +1,4 @@
-import clients from './clients.vue';
+import clients from '@/app/clients/clients.vue';
 
 const clientsRoutes = [
     {

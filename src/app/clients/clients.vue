@@ -21,16 +21,21 @@
 <script>
 export default {
     name: 'clients',
-    data: () => ({
-        clients: null,
-    }),
-
+    computed: {
+        clients() {
+            return this.$store.state.clients;
+        },
+    },
+    serverPrefetch() {
+        return this.fetchClients();
+    },
     mounted() {
-        fetch('http://localhost:5435/v1/clients')
-            .then(response => response.json())
-            .then(result => {
-                this.clients = result.clients;
-            });
+        if (!this.clients) return this.fetchClients();
+    },
+    methods: {
+        fetchClients() {
+            return this.$store.dispatch('fetchClients');
+        },
     },
 };
 </script>
