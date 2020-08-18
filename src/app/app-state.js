@@ -3,18 +3,22 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-    state: () => ({
-        items: {},
-    }),
-    actions: {
-        fetchClients({ commit }) {
-            commit('getClients', { clients: [{ uuid: 'hi' }] });
+export function createStore() {
+    return new Vuex.Store({
+        state: () => ({
+            clients: {},
+        }),
+        actions: {
+            fetchClients({ commit }) {
+                return new Promise.resolve([{ uuid: 'hi' }]).then(theClients => {
+                    commit('setClients', { theClients });
+                });
+            },
         },
-    },
-    mutations: {
-        getClients(state, { clients }) {
-            Vue.set(state.clients, clients);
+        mutations: {
+            setClients(state, { theClients }) {
+                Vue.set(state, 'clients', theClients);
+            },
         },
-    },
-});
+    });
+}
