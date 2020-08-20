@@ -21,7 +21,7 @@
 
         computed: {
             ...mapGetters({
-                title: 'title',
+                title: 'title 2',
             })
         },
     };
