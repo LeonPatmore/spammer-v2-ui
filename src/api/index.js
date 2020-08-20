@@ -6,6 +6,7 @@ const instance = axios.create({
 
 const getUsers = () => instance.get('/users');
 
+
 export default {
     getUsers
 };
