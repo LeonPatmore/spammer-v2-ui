@@ -13,5 +13,8 @@
     "license": "ISC",
     "dependencies": {
         "nuxt": "^2.14.3"
+    },
+    "devDependencies": {
+        "@nuxtjs/vuetify": "^1.11.2"
     }
 }
