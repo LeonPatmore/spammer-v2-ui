@@ -25,11 +25,9 @@ module.exports = {
     */
     loading: { color: '#fff' },
 
-    /*
-    ** Plugins to load before mounting the App
-    */
-    plugins: [
-        '@/plugins/vuetify'
+    buildModules: [
+        // Simple usage
+        '@nuxtjs/vuetify',
     ],
 
     /*
