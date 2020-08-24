@@ -26,14 +26,12 @@ import axios from "axios";
 export default {
   layout: "default",
   name: "clients",
-  data() {
-    return { clients: null };
+  async asyncData() {
+    const clients = await axios.get(`http://localhost:5435/v1/clients`);
+    // const a = [{ uuid: JSON.stringify(clients.data.clients) }];
+    // // console.log(clients);
+    return { clients: clients.data.clients };
   },
-  async fetch() {
-    this.clients = await axios.get(`http://localhost:5435/v1/clients/`).data
-      .clients;
-  },
-  fetchOnServer: true,
 };
 </script>
 

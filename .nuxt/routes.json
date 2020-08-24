@@ -3,14 +3,12 @@
     "name": "clients",
     "path": "/clients",
     "component": "C:\\\\Users\\\\Leon\\\\Documents\\\\GitHub\\\\spammer-v2-ui\\\\pages\\\\clients\\\\index.vue",
-    "chunkName": "pages/clients/index",
-    "_name": "_6abbe505"
+    "chunkName": "pages/clients/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Users\\\\Leon\\\\Documents\\\\GitHub\\\\spammer-v2-ui\\\\pages\\\\index.vue",
-    "chunkName": "pages/index",
-    "_name": "_6ca8c5e7"
+    "chunkName": "pages/index"
   }
 ]
