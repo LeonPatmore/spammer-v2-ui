@@ -22,7 +22,7 @@
     </v-navigation-drawer>
 
     <v-app-bar app dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>Spammer V2</v-toolbar-title>
     </v-app-bar>
 

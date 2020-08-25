@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row dense>
-        <v-col cols="12" v-for="client in clients" :key="client.uuid">
+        <v-col v-for="client in clients" :key="client.uuid" cols="12">
           <v-card>
             <v-card-title class="headlines" v-text="client.uuid" />
             <v-card-text>
@@ -25,7 +25,7 @@
 import axios from "axios";
 export default {
   layout: "default",
-  name: "clients",
+  name: "Clients",
   async asyncData() {
     const clients = await axios.get(`http://localhost:5435/v1/clients`);
     // const a = [{ uuid: JSON.stringify(clients.data.clients) }];
