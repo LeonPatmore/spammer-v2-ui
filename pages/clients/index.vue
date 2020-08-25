@@ -27,11 +27,8 @@ export default {
   layout: "default",
   name: "Clients",
   async asyncData() {
-    const spammerApiHost = process.env.SPAMMER_API_HOST || "localhost";
-    const spammerApiPort = process.env.SPAMMER_API_PORT || "5435";
-    const clients = await axios.get(
-      `http://${spammerApiHost}:${spammerApiPort}/v1/clients`
-    );
+    // const spammerApiHost = process.env.SPAMMER_API_HOST || "localhost";
+    const clients = await axios.get(`http://localhost:8080/v1/clients`);
     // const a = [{ uuid: JSON.stringify(clients.data.clients) }];
     // // console.log(clients);
     return { clients: clients.data.clients };
