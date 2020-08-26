@@ -2,6 +2,4 @@
 .gitignore
 .dockerignore
 Dockerfile
-nginx/**
-dist/**
-src/assets/**
+node_modules/**

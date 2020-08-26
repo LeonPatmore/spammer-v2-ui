@@ -1,12 +1,10 @@
-FROM node:lts-alpine as builder
+FROM node:10.7
+
 WORKDIR /app
-COPY . .
-RUN npm install
+COPY . . 
+RUN npm install --production
 RUN npm run build
 
-FROM nginx:stable-alpine
-COPY --from=builder /app/dist /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 3000
+
+CMD ["npm", "run", "start"]

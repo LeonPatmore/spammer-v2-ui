@@ -12,11 +12,8 @@ jobs:
                 name: install-npm
                 command: npm install
             - run:
-                  name: formatting-check
-                  command: npx prettier -c **
-            - run:
                   name: static-analysis
-                  command: npm run lint
+                  command: npm run lint 
 workflows:
     version: 2
     build_test_push:
