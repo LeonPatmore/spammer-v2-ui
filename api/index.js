@@ -1,4 +1,4 @@
-import postPerformance from "../services/spammer-leader";
+// import postPerformance from "../services/spammer-leader";
 
 export default function (req, res) {
   console.log(req.url);
