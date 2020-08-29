@@ -12,9 +12,10 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@nuxtjs/axios": "^5.12.2",
+        "@nuxtjs/vuetify": "^1.11.2",
         "axios": "^0.20.0",
-        "nuxt": "^2.14.3",
-        "@nuxtjs/vuetify": "^1.11.2"
+        "nuxt": "^2.14.3"
     },
     "devDependencies": {
         "babel-eslint": "^10.1.0",

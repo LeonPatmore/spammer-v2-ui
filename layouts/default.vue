@@ -10,6 +10,7 @@
             <v-list-item-title>Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
         <v-list-item to="/clients" nuxt-link>
           <v-list-item-action>
             <v-icon>mdi-account</v-icon>
@@ -18,6 +19,20 @@
             <v-list-item-title>Clients</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-item-title>Performance Tests</v-list-item-title>
+          </template>
+          <v-list-item to="/performance/create/http" nuxt-link>
+            <v-list-item-action>
+              <v-icon>mdi-account</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>
+              <v-list-item-title>HTTP</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-group>
       </v-list>
     </v-navigation-drawer>
 

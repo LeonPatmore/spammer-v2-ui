@@ -28,15 +28,14 @@ module.exports = {
    */
   loading: { color: "#fff" },
 
-  buildModules: [
-    // Simple usage
-    "@nuxtjs/vuetify",
-  ],
+  serverMiddleware: [{ path: "/api", handler: "~/api/index.js" }],
+
+  buildModules: ["@nuxtjs/vuetify"],
 
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: ["@nuxtjs/axios"],
 
   server: {
     port: 3000,
