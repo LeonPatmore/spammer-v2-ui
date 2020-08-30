@@ -1,6 +1,6 @@
-// import postPerformance from "../services/spammer-leader";
+import { startHttpPerformanceRun } from "../services/spammer-leader";
 
-export default function (req, res) {
-  console.log(req.url);
-  res.end(JSON.stringify({ hu: "hello!" }));
+export default async function (req, res) {
+  const testUuid = await startHttpPerformanceRun();
+  res.end(JSON.stringify({ hu: "hello!", id: testUuid }));
 }

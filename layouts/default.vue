@@ -20,9 +20,18 @@
           </v-list-item-content>
         </v-list-item>
 
+        <v-list-item to="/performance" nuxt-link>
+          <v-list-item-action>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Tests</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-group>
           <template v-slot:activator>
-            <v-list-item-title>Performance Tests</v-list-item-title>
+            <v-list-item-title>Start Performance Tests</v-list-item-title>
           </template>
           <v-list-item to="/performance/create/http" nuxt-link>
             <v-list-item-action>

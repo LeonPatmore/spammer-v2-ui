@@ -15,6 +15,7 @@
         "@nuxtjs/axios": "^5.12.2",
         "@nuxtjs/vuetify": "^1.11.2",
         "axios": "^0.20.0",
+        "http-status-codes": "^2.1.2",
         "nuxt": "^2.14.3"
     },
     "devDependencies": {
