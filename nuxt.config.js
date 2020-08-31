@@ -28,7 +28,15 @@ module.exports = {
    */
   loading: { color: "#fff" },
 
-  serverMiddleware: [{ path: "/api", handler: "~/api/index.js" }],
+  proxy: {
+    "/api/": { target: "http://localhost:5435", pathRewrite: { "^/api/": "" } },
+  },
+
+  axios: {
+    proxy: true,
+  },
+
+  // serverMiddleware: [{ path: "/api", handler: "~/api/index.js" }],
 
   buildModules: ["@nuxtjs/vuetify"],
 

@@ -1,6 +1,3 @@
-import axios from "axios";
-import commitPerformanceTests from "./inits";
-
 export const state = () => ({
   clients: [],
   performanceTests: [],
@@ -24,17 +21,8 @@ export const getters = {
   },
 };
 
-export const actions = {
-  async nuxtServerInit({ commit }) {
-    const spammerApiHost = process.env.SPAMMER_API_HOST || "localhost";
-    const spammerApiPort = process.env.SPAMMER_API_PORT || "5435";
-
-    const commitClients = axios
-      .get(`http://${spammerApiHost}:${spammerApiPort}/v1/clients`)
-      .then((res) => {
-        commit("setClients", { clients: res.data.clients });
-      });
-
-    return Promise.all([commitClients, commitPerformanceTests(commit)]);
-  },
-};
+// export const actions = {
+//   async nuxtServerInit({ commit }) {
+//     // On init.
+//   },
+// };

@@ -22,11 +22,17 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
-  layout: "default",
-  name: "Clients",
-  computed: mapState(["clients"]),
+  data() {
+    return {
+      clients: [],
+    };
+  },
+  mounted() {
+    this.$axios.get("api/v1/clients").then((res) => {
+      this.clients = res.data.clients;
+    });
+  },
 };
 </script>
 

@@ -22,9 +22,17 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
 export default {
-  computed: mapState(["performanceTests"]),
+  data() {
+    return {
+      performanceTests: [],
+    };
+  },
+  mounted() {
+    this.$axios.get("api/v1/performance").then((res) => {
+      this.performanceTests = res.data.performance_tests;
+    });
+  },
 };
 </script>
 
