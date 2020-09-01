@@ -8,7 +8,7 @@
         <v-text-field label="RPS" required />
         <v-text-field label="URL" required />
         <v-text-field label="Method" required />
-        <v-btn small rounded>Start</v-btn>
+        <v-btn small rounded @click="startTest">Start</v-btn>
       </v-form>
     </v-container>
   </div>
@@ -23,6 +23,11 @@ export default {
     this.$axios.get("api").then((res) => {
       this.result = res.data;
     });
+  },
+  methods: {
+    startTest() {
+      alert("hey");
+    },
   },
 };
 </script>
