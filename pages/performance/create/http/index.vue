@@ -2,9 +2,8 @@
   <div>
     <v-container>
       <h1>HTTP</h1>
-      <h2>{{ result }}</h2>
       <v-form ref="form" lazy-validation>
-        <v-text-field label="Runtime" required />
+        <v-text-field v-model="runtime" label="Runtime" required />
         <v-text-field label="RPS" required />
         <v-text-field label="URL" required />
         <v-text-field label="Method" required />
@@ -17,16 +16,24 @@
 <script>
 export default {
   data() {
-    return { result: "one" };
-  },
-  mounted() {
-    this.$axios.get("api").then((res) => {
-      this.result = res.data;
-    });
+    return {
+      runtime: 0,
+    };
   },
   methods: {
     startTest() {
-      alert("hey");
+      const data = `module.exports = {
+        runtimeSeconds: ${this.runtime},
+        rps: 5,
+        interface: 'http',
+        method: 'post',
+        url: 'http://localhost:5435/123'
+      }`;
+      return this.$axios.post("api/v1/performance", data, {
+        headers: {
+          "Content-Type": "application/javascript",
+        },
+      });
     },
   },
 };
