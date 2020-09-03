@@ -29,11 +29,15 @@ export default {
         method: 'post',
         url: 'http://localhost:5435/123'
       }`;
-      return this.$axios.post("api/v1/performance", data, {
-        headers: {
-          "Content-Type": "application/javascript",
-        },
-      });
+      return this.$axios
+        .post("api/v1/performance", data, {
+          headers: {
+            "Content-Type": "application/javascript",
+          },
+        })
+        .then(() => {
+          this.$router.push("/performance");
+        });
     },
   },
 };

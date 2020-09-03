@@ -12,8 +12,24 @@
             <v-card-text>
               Uuid: {{ performanceTest.uuid }}
               <br />
-              Status: {{ performanceTest.status }}
+              <div
+                :class="{
+                  inactivePerformanceTest:
+                    performanceTest.status != 'running' &&
+                    performanceTest.status != 'done',
+                }"
+              >
+                Status: {{ performanceTest.status }}
+              </div>
             </v-card-text>
+            <v-card-actions>
+              <v-btn
+                rounded
+                text
+                @click="performanceDetails(performanceTest.uuid)"
+                >Details</v-btn
+              >
+            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
@@ -33,7 +49,16 @@ export default {
       this.performanceTests = res.data.performance_tests;
     });
   },
+  methods: {
+    performanceDetails(uuid) {
+      this.$router.push(`/performance/${uuid}`);
+    },
+  },
 };
 </script>
 
-<style></style>
+<style>
+.inactivePerformanceTest {
+  color: lightcoral;
+}
+</style>
