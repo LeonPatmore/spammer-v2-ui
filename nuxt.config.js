@@ -1,5 +1,8 @@
 const pkg = require("./package");
 
+const spammerLeaderHost = process.env.SPAMMER_LEADER_HOST;
+const spammerLeaderPort = process.env.SPAMMER_LEADER_PORT;
+
 module.exports = {
   mode: "universal",
 
@@ -29,7 +32,10 @@ module.exports = {
   loading: { color: "#fff" },
 
   proxy: {
-    "/api/": { target: "http://localhost:5435", pathRewrite: { "^/api/": "" } },
+    "/api/": {
+      target: `http://${spammerLeaderHost}:${spammerLeaderPort}`,
+      pathRewrite: { "^/api/": "" },
+    },
   },
 
   axios: {
