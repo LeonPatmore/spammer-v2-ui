@@ -17,9 +17,9 @@
 export default {
   data() {
     return {
-      runtime: 0,
-      rps: 0,
-      url: "",
+      runtime: 10,
+      rps: 1,
+      url: "http://localhost:5435/123",
       method: "POST",
       methods: ["POST", "GET"],
     };
@@ -28,10 +28,10 @@ export default {
     startTest() {
       const data = `module.exports = {
         runtimeSeconds: ${this.runtime},
-        rps: 5,
+        rps: ${this.rps},
         interface: 'http',
-        method: 'post',
-        url: 'http://localhost:5435/123'
+        method: '${this.method.toLowerCase()}',
+        url: '${this.url}'
       }`;
       return this.$axios
         .post("api/v1/performance", data, {
