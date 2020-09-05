@@ -1,7 +1,7 @@
 const pkg = require("./package");
 
-const spammerLeaderHost = process.env.SPAMMER_LEADER_HOST;
-const spammerLeaderPort = process.env.SPAMMER_LEADER_PORT;
+const spammerLeaderHost = process.env.SPAMMER_LEADER_HOST || "localhost";
+const spammerLeaderPort = process.env.SPAMMER_LEADER_PORT || "5435";
 
 module.exports = {
   mode: "universal",
