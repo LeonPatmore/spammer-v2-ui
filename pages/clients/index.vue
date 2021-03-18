@@ -28,10 +28,16 @@ export default {
       clients: [],
     };
   },
+  methods: {
+    async getClients() {
+      return this.$axios.get("api/v1/clients").then((res) => {
+        this.clients = res.data.clients;
+      });
+    },
+  },
   mounted() {
-    this.$axios.get("api/v1/clients").then((res) => {
-      this.clients = res.data.clients;
-    });
+    this.getClients();
+    this.pollInterval = setInterval(this.getClients, 5000);
   },
 };
 </script>
