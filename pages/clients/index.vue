@@ -26,6 +26,21 @@ export default {
   data() {
     return {
       clients: [],
+      connection: null,
+    };
+  },
+  mounted() {
+    console.log("Starting connection to websocket server!");
+    this.connection = new WebSocket("ws://localhost:13402/");
+
+    this.connection.onopen = (event) => {
+      console.log(event);
+      console.log("Connected!");
+    };
+
+    this.connection.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      this.clients = data.followers;
     };
   },
   methods: {
@@ -34,10 +49,6 @@ export default {
         this.clients = res.data.clients;
       });
     },
-  },
-  mounted() {
-    this.getClients();
-    this.pollInterval = setInterval(this.getClients, 5000);
   },
 };
 </script>
