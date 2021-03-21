@@ -3,7 +3,12 @@
     <v-container>
       <v-row dense>
         <v-col v-for="client in clients" :key="client.uuid" cols="12">
-          <v-card>
+          <v-card
+            color="success"
+            :rounded="true"
+            :nuxt="true"
+            :to="`/clients/${client.uuid}`"
+          >
             <v-card-title class="headlines" v-text="client.uuid" />
             <v-card-text>
               Uuid: {{ client.uuid }}
@@ -22,32 +27,20 @@
 </template>
 
 <script>
+import { clientGetter } from "../../services/spammer-leader-ws";
 export default {
   data() {
     return {
-      clients: [],
-      connection: null,
+      clientGetter: clientGetter,
+      clients: clientGetter.clients,
     };
   },
-  mounted() {
-    console.log("Starting connection to websocket server!");
-    this.connection = new WebSocket("ws://localhost:13402/");
-
-    this.connection.onopen = (event) => {
-      console.log(event);
-      console.log("Connected!");
-    };
-
-    this.connection.onmessage = (event) => {
-      const data = JSON.parse(event.data);
-      this.clients = data.followers;
-    };
-  },
-  methods: {
-    async getClients() {
-      return this.$axios.get("api/v1/clients").then((res) => {
-        this.clients = res.data.clients;
-      });
+  watch: {
+    clientGetter: {
+      handler(n) {
+        this.clients = n.clients;
+      },
+      deep: true,
     },
   },
 };

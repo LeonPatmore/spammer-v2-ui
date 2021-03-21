@@ -4,7 +4,7 @@ const spammerLeaderHost = process.env.SPAMMER_LEADER_HOST || "localhost";
 const spammerLeaderPort = process.env.SPAMMER_LEADER_PORT || "5435";
 
 module.exports = {
-  mode: "universal",
+  mode: "spa",
 
   /*
    ** Headers of the page

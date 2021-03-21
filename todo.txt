@@ -1,2 +1,3 @@
 x 20/03/2021 17/03/2021 Investigate automatic UI updates @Websockets
 17/03/2021 Improve performance page.
+x 21/03/2021 21/03/2021 Share the websocket accross all webpages @Websockets
