@@ -1,10 +1,9 @@
 console.log("Starting connection to websocket server!");
 const connection = new WebSocket("ws://localhost:13402/");
 
-let clientEventListeners = [];
-
-let clients = [];
-let clientGetter = { clients };
+// Getters
+let clientGetter = { clients: [] };
+let leaderGetter = { leader: { uuid: undefined } };
 
 connection.onopen = (event) => {
   console.log(event);
@@ -13,10 +12,9 @@ connection.onopen = (event) => {
 
 connection.onmessage = (event) => {
   const data = JSON.parse(event.data);
-  clientGetter.clients = data.followers;
-  clientEventListeners.forEach((listener) => {
-    listener(data.followers);
-  });
+  console.log(event.data);
+  if (data.hasOwnProperty("followers")) clientGetter.clients = data.followers;
+  if (data.hasOwnProperty("leader")) leaderGetter.leader = data.leader;
 };
 
-export { connection, clientEventListeners, clientGetter };
+export { connection, clientGetter, leaderGetter };
