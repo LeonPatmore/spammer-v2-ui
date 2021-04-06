@@ -1,8 +1,5 @@
 const pkg = require("./package");
 
-const spammerLeaderHost = process.env.SPAMMER_LEADER_HOST || "localhost";
-const spammerLeaderPort = process.env.SPAMMER_LEADER_PORT || "5435";
-
 module.exports = {
   mode: "spa",
 
@@ -31,20 +28,9 @@ module.exports = {
    */
   loading: { color: "#fff" },
 
-  proxy: {
-    "/api/": {
-      target: `http://${spammerLeaderHost}:${spammerLeaderPort}`,
-      pathRewrite: { "^/api/": "" },
-    },
-  },
-
-  axios: {
-    proxy: true,
-  },
-
-  // serverMiddleware: [{ path: "/api", handler: "~/api/index.js" }],
-
   buildModules: ["@nuxtjs/vuetify"],
+
+  plugins: ["~/plugins/simple-alert.js"],
 
   /*
    ** Nuxt.js modules

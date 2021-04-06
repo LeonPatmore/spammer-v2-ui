@@ -1,28 +1,16 @@
 export const state = () => ({
-  clients: [],
-  performanceTests: [],
+  spammerHost: undefined,
 });
 
 export const mutations = {
-  setClients(state, { clients }) {
-    state.clients = clients;
-  },
-  setPerformanceTests(state, { performanceTests }) {
-    state.performanceTests = performanceTests;
+  setSpammerHost(state, host) {
+    console.log("Setting spammer host to " + host);
+    state.spammerHost = host;
   },
 };
 
 export const getters = {
-  getClients(state) {
-    return state.clients;
-  },
-  getPerformanceTests(state) {
-    return state.performanceTests;
+  spammerHost(state) {
+    return state.spammerHost;
   },
 };
-
-// export const actions = {
-//   async nuxtServerInit({ commit }) {
-//     // On init.
-//   },
-// };

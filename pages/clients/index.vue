@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { clientGetter } from "../../services/spammer-leader-ws";
+import { clientGetter } from "../../services/spammer-leader-store";
 export default {
   data() {
     return {
