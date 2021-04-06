@@ -13,8 +13,10 @@ connection.onopen = (event) => {
 connection.onmessage = (event) => {
   const data = JSON.parse(event.data);
   console.log(event.data);
-  if (data.hasOwnProperty("followers")) clientGetter.clients = data.followers;
-  if (data.hasOwnProperty("leader")) leaderGetter.leader = data.leader;
+  if (Object.prototype.hasOwnProperty.call(data, "followers"))
+    clientGetter.clients = data.followers;
+  if (Object.prototype.hasOwnProperty.call(data, "leader"))
+    leaderGetter.leader = data.leader;
 };
 
 export { connection, clientGetter, leaderGetter };
